@@ -35,8 +35,8 @@ object auction {
           complete(bids)
         } ~
         post {
-          parameter("bid".as[Int], "user") { (bid, user) =>
-            auction ! m.Bid(user, bid)
+          entity(as[m.Bid]) { newBid =>
+            auction ! m.Bid(newBid.userId, newBid.bid)
             complete((StatusCodes.Accepted, "bid placed"))
           }
         }
