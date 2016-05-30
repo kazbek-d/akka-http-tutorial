@@ -7,7 +7,7 @@ import scala.io.StdIn
 object WebServer {
 
   def main(args: Array[String]): Unit = {
-    println("Server Start")
+    println("Server Start 127.0.0.1:8081")
 
 
     val route = {
