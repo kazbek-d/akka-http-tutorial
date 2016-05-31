@@ -7,7 +7,7 @@ import akka.http.scaladsl.server.Directives._
 object hello {
   private val helloMessage = "<h1>Akka-http hello actor</h1>"
 
-  val helloRout = pathPrefix("hello") {
+  val helloRoute = pathPrefix("hello") {
     path("me" / IntNumber) { id =>
       get {
         complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, "me: " + id))

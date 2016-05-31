@@ -9,7 +9,7 @@ import scala.util.Random
 
 object stream {
   private val numbers = Source.fromIterator(() => Iterator.continually(Random.nextInt()))
-  val randomPath = path("random") {
+  val streamRoute = path("random") {
     get {
       complete(HttpEntity(ContentTypes.`text/html(UTF-8)`, numbers.map(n => ByteString(s"$n\n"))))
     }

@@ -6,7 +6,7 @@ import akka.http.scaladsl.server.Directives._
 
 object auth {
 
-  val authPath = path("auth") {
+  val authRoute = path("auth") {
     extractCredentials { httpCredentials =>
       get {
         httpCredentials match {

@@ -20,7 +20,7 @@ object auction {
   import common.implicits._
 
   private val auction = system.actorOf(Props[actors.Auction], "auction")
-  val auction_route =
+  val actorRoute =
     path("auction") {
       put {
         parameter("bid".as[Int], "user") { (bid, user) =>

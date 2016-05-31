@@ -12,7 +12,7 @@ object WebServer {
 
     val route = {
       import routs._
-      hello.helloRout ~ auction.auction_route ~ stream.randomPath ~ auth.authPath
+      hello.helloRoute ~ auction.actorRoute ~ stream.streamRoute ~ auth.authRoute
     }
 
     import common.implicits._
