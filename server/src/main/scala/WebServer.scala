@@ -7,17 +7,17 @@ import scala.io.StdIn
 object WebServer {
 
   def main(args: Array[String]): Unit = {
-    println("Server Start 127.0.0.1:8081")
+    println("Server Start 127.0.0.1:9009")
 
 
     val route = {
       import routs._
-      hello.helloRoute ~ auction.actorRoute ~ stream.streamRoute ~ auth.authRoute
+      hello.helloRoute ~ auction.actorRoute ~ stream.streamRoute ~ auth.authRoute ~ fee.feesRoute
     }
 
     import common.implicits._
 
-    val bindingFuture = Http().bindAndHandle(route, "localhost", 8081)
+    val bindingFuture = Http().bindAndHandle(route, "localhost", 9009)
 
     println("press any key for exit")
     StdIn.readLine()

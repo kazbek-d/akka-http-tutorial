@@ -33,12 +33,6 @@ object auction {
 
           val bids: Future[m.Bids] = (auction ? m.GetBids).mapTo[m.Bids]
           complete(bids)
-        } ~
-        post {
-          entity(as[m.Bid]) { newBid =>
-            auction ! m.Bid(newBid.userId, newBid.bid)
-            complete((StatusCodes.Accepted, "bid placed"))
-          }
         }
     }
 
